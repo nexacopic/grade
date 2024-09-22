@@ -1,0 +1,89 @@
+[gd_scene load_steps=9 format=3 uid="uid://ppoqd7mml6mn"]
+
+[ext_resource type="Script" path="res://code/tab_container_keybinds.gd" id="1_ucwy5"]
+[ext_resource type="Script" path="res://code/File.gd" id="2_0b2uf"]
+[ext_resource type="Script" path="res://code/code_edit.gd" id="2_3bopb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dp16n"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_48lhh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m15io"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pj35f"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n14dc"]
+
+[node name="main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.129412, 0.129412, 0.129412, 1)
+
+[node name="TabContainer" type="TabContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+current_tab = 1
+drag_to_rearrange_enabled = true
+script = ExtResource("1_ucwy5")
+
+[node name="start page" type="Control" parent="TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="filename (txt) *" type="Control" parent="TabContainer"]
+layout_mode = 2
+script = ExtResource("2_0b2uf")
+metadata/_tab_index = 1
+
+[node name="CodeEdit" type="CodeEdit" parent="TabContainer/filename (txt) *"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 26.0
+offset_top = 27.0
+offset_right = -26.0
+offset_bottom = -27.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_dp16n")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_48lhh")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_m15io")
+theme_override_styles/completion = SubResource("StyleBoxEmpty_pj35f")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_n14dc")
+placeholder_text = "start typing...
+"
+scroll_smooth = true
+minimap_draw = true
+minimap_width = 110
+highlight_current_line = true
+draw_control_chars = true
+draw_tabs = true
+draw_spaces = true
+gutters_draw_bookmarks = true
+gutters_draw_line_numbers = true
+indent_automatic = true
+auto_brace_completion_enabled = true
+script = ExtResource("2_3bopb")
+
+[node name="settings" type="Control" parent="TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
