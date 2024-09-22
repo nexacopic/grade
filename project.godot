@@ -11,9 +11,10 @@ config_version=5
 [application]
 
 config/name="grade"
+config/version="0.2"
 run/main_scene="res://main.tscn"
-config/features=PackedStringArray("4.4", "Mobile")
-config/icon="res://icon.svg"
+config/features=PackedStringArray("4.4", "C#", "Mobile")
+config/icon="res://grade.png"
 
 [display]
 
@@ -22,6 +23,10 @@ window/size/mode=2
 [dotnet]
 
 project/assembly_name="grade"
+
+[editor]
+
+run/main_run_args="D:\\bptech4\\bin\\Game\\app.json"
 
 [gui]
 
@@ -32,7 +37,12 @@ theme/custom_font="res://jetbrainsmono.ttf"
 
 modifier={
 "deadzone": 0.5,
-"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194326,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194328,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
+shiftmod={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194325,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
 ]
 }
 

@@ -31,28 +31,16 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.129412, 0.129412, 0.129412, 1)
 
-[node name="TabContainer" type="TabContainer" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-current_tab = 1
-drag_to_rearrange_enabled = true
-script = ExtResource("1_ucwy5")
-
-[node name="start page" type="Control" parent="TabContainer"]
+[node name="filepreview" type="Control" parent="."]
 visible = false
 layout_mode = 2
-metadata/_tab_index = 0
-
-[node name="filename (txt) *" type="Control" parent="TabContainer"]
-layout_mode = 2
+anchors_preset = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 30.0
 script = ExtResource("2_0b2uf")
-metadata/_tab_index = 1
 
-[node name="CodeEdit" type="CodeEdit" parent="TabContainer/filename (txt) *"]
+[node name="CodeEdit" type="CodeEdit" parent="filepreview"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -83,7 +71,72 @@ indent_automatic = true
 auto_brace_completion_enabled = true
 script = ExtResource("2_3bopb")
 
+[node name="TabContainer" type="TabContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+current_tab = 0
+drag_to_rearrange_enabled = true
+script = ExtResource("1_ucwy5")
+
+[node name="start page" type="Control" parent="TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="Label" type="Label" parent="TabContainer/start page"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -82.0
+offset_top = -11.0
+offset_right = 82.0
+offset_bottom = 11.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "welcome to grade!
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="TabContainer/start page"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = -155.0
+offset_right = 287.0
+offset_bottom = -8.0
+grow_vertical = 0
+text = "keymap:
+alt+n to create a new file
+alt+o to open a file
+alt+s to save
+alt+shift+s to save as
+alt+left/right to switch tabs"
+
 [node name="settings" type="Control" parent="TabContainer"]
 visible = false
 layout_mode = 2
-metadata/_tab_index = 2
+metadata/_tab_index = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/settings"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 13.0
+offset_top = 11.0
+offset_right = -12.0
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="text_changed" from="filepreview/CodeEdit" to="filepreview" method="_on_code_edit_text_changed"]
+[connection signal="tab_changed" from="TabContainer" to="TabContainer" method="_on_tab_changed"]
