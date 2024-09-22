@@ -1,6 +1,19 @@
 extends TabContainer
 var selectedfile = ""
 
+func _ready():
+	var cla = OS.get_cmdline_args()
+	var path = cla[0]
+	if(path==null || path==""): return
+	if(!FileAccess.file_exists(path)): return
+	var f = get_parent().get_node("filepreview").duplicate()
+	add_child(f)
+	f.name = path.get_basename().get_file() + " (" + path.get_extension() + ")"
+	f.full_path = path
+	var file = FileAccess.open(path, FileAccess.READ)
+	f.get_node("CodeEdit").text = file.get_as_text()
+	f.visible = true
+
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed:
